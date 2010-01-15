@@ -1,5 +1,9 @@
 <?php
 
+require('updatethemes.inc.php');
+
+updateThemeDatabase();
+
 function generalTemplate() {
 	global $srv, $stgs;
 
