@@ -1,0 +1,4 @@
+name = Viewer
+version = 1.0
+description = Post processing default module
+package = core.default

@@ -1,0 +1,25 @@
+<?php
+
+function categoriesWidget() {
+	global $srv;
+			$output[] = '<div class="block">';
+					
+			
+				$output[] = '<div class="title"><h2><span class="dark">Categories</span></h2></div>';
+				$output[] = '<div class="text">';
+				$output[] = '<ul id="category">';
+				$output[] = '<div id="buttonLink">';
+				$output[] = '<ul id="subCategory">';
+				foreach (getCategories() as $categ) {	
+						$output[] = '<li><a href="'.$srv->buildUrl('?category='.$categ['label']).'">'.ucwords($categ['label']).'</a></li>';
+				}
+				$output[] = '</ul>';
+				
+				$output[] = '</div>';
+				$output[] = '</ul>';
+				$output[] = '</div>';
+				$output[] = '<div class="close"></div>';
+	
+			$output[] = '</div>';	//Block
+	return join("\n", $output);
+}

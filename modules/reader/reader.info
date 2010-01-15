@@ -1,0 +1,5 @@
+name = Reader
+version = 1.0
+description = Reads feeds and load in database
+package = core.default
+require = simplepie

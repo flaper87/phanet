@@ -1,0 +1,41 @@
+<?php
+
+function userLoginDependencies() {
+	return array('users');
+}
+
+function userLoginWidget() {
+	global $srv;
+	
+	$output[] = "<div class=\"block\">";
+		$output[] = "<div class=\"title\"><h2><span class=\"dark\">User</span></h2></div>";
+		$output[] = "<div class=\"text\">";
+		
+			if ($_SESSION['userNickname'] != "" ) {
+				// We are logged in
+				$output[] = "<b>Wellcome ".$_SESSION['userNickname']."</b>";
+				$output[] = "<br />";
+				$output[] = "<a href=\"".$srv->buildUrl("?user=logout")."\">Logout</a>";
+			} else {
+				// We are not logged in
+				if ($_SESSION["loginMessage"] != "") {
+					$output[] = "<b>".$_SESSION["loginMessage"]."</b>";
+					$output[] = "<br /><br />";
+					$_SESSION["loginMessage"] = "";
+				}
+				
+				$output[] = "<form action='".$srv->buildUrl("?user=login")."' method='post'>";
+				$output[] = "User: <input type=\"text\" name=\"phanetUser\"> <br/><br/>";
+				$output[] = "Password: <input type=\"password\" name=\"phanetUserPass\"> <br/><br />";
+				$output[] = "<input type=\"submit\" name=\"phanetUserlogin\" value=\"Login\"> <br />";
+				$output[] = '<a href="'.$srv->buildUrl("?user=register&TB_iframe=true&height=500&width=700").'" class="thickbox" title="Registration Form">Register</a>';
+				$output[] = '<a href="'.$srv->buildUrl('?user=lostpass&TB_iframe=true&height=400&width=500"').'" class="thickbox" title="Did you lose something?">Lost your password?</a>';
+				$output[] = "</form>";
+			}
+			
+		$output[] = "</div>";
+		$output[] = "<div class=\"close\"></div>";
+	$output[] = "</div>";
+	
+	return join("\n", $output);
+}

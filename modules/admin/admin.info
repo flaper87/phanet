@@ -1,0 +1,4 @@
+name = Admin
+version = 1.0
+description = Administration Module
+package = core.default

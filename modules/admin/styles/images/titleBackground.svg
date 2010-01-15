@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg5092"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="/home/flaper87/workspace/phanet_dev/modules/admin/content/images"
+   sodipodi:docname="titleBackground.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs5094">
+    <linearGradient
+       id="linearGradient3141">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3143" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3145" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3141"
+       id="linearGradient3149"
+       x1="273.23593"
+       y1="220.93361"
+       x2="273.23593"
+       y2="255.21933"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="281.08688"
+     inkscape:cy="807.8389"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="916"
+     inkscape:window-height="604"
+     inkscape:window-x="102"
+     inkscape:window-y="64" />
+  <metadata
+     id="metadata5097">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#3f7dc1;fill-opacity:0.78879311;fill-rule:nonzero"
+       id="rect5100"
+       width="3.6147573"
+       height="34.285713"
+       x="271.42856"
+       y="220.93361"
+       inkscape:export-filename="/home/flaper87/workspace/phanet/modules/admin/content/images/titleBackground.png"
+       inkscape:export-xdpi="31.499952"
+       inkscape:export-ydpi="31.499952" />
+    <rect
+       inkscape:export-ydpi="31.499952"
+       inkscape:export-xdpi="31.499952"
+       inkscape:export-filename="/home/flaper87/workspace/phanet/modules/admin/content/images/titleBackground.png"
+       y="220.93361"
+       x="271.42856"
+       height="34.285713"
+       width="3.6147573"
+       id="rect2158"
+       style="opacity:1;fill:url(#linearGradient3149);fill-opacity:1;fill-rule:nonzero" />
+  </g>
+</svg>

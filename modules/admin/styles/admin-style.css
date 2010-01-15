@@ -1,0 +1,666 @@
+body {
+	margin: 0px;
+	font:14px/1.5em "Lucida Grande", Tahoma, sans-serif;
+	padding: 0px;
+	letter-spacing:0px;
+	background: #f3f3f3;
+}
+
+/*#####################################
+	NAV BAR
+######################################*/
+#top-border {
+	min-height:30px;
+	background-color:#464646;
+	
+}
+
+#header {
+	/*background: url(images/menu-bar.png) repeat-x top left;*/
+	background-color: #5fb939;
+	min-height: 110px;
+	border-bottom: 2px solid #ffa20c;
+}
+
+#header h3 {
+	float: left;
+	padding: 15px 0 0 5px;
+	marging: 0 0 0 0;
+	font-size: 15px;
+	color: #fff;
+}
+
+#header a {
+	color: #464646;
+	text-decoration: none;
+}
+
+.siteName {
+	float: left;
+	font-weight: bold;
+	font: 35px sans-sherif;
+	padding: 15px 0 0 20px;
+	marging: 0 0 0 0;
+}
+
+#menu {
+	padding-top: 65px;
+	padding-right: auto;
+	padding-left: auto;
+	padding-bottom: 0px;
+}
+
+#menu a:hover {
+	color: #ffa20c;
+}
+
+#menu a {
+	color: #fff;
+	text-decoration: none;
+	padding: 6px 5px;
+}
+
+#menu a.selected {
+	background: #ffa20c;
+	color: #fff;
+}
+
+#menu h4 {
+	color: #fff;
+	height: 25px;
+	font-size: 16px;
+	font-style: none;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+/* Verde cali 5fb939*/
+#menu li {
+	list-style-type: none;
+	float: left; 
+}
+
+#subMenu {
+	height: 29px;
+	padding: 7px 0 0 0;
+	marging: 0 0 0 0;
+}
+
+#subMenu h4 {
+	color: #aaa;
+	font-size: 16px;
+	font-style: none;
+	display: inline;
+	padding-left: 10px;
+}
+
+#subMenu a:hover {
+	padding: 5px 5px 5px 5px;
+	color: #ffa20c;
+}
+
+#subMenu a {
+	color: #464646;
+	text-decoration: none;
+	padding: 5px 5px 5px 5px;
+}
+
+#subMenu a.selected {
+	color: #464646;
+	background: #5fb939;
+	padding: 5px 5px 5px 5px;
+}
+
+.clear {
+	clear: both;
+}
+/********************************
+	CONTENTS
+********************************/
+
+#content{
+	background: #f2f2f2;	
+	min-height: 500px;
+	padding: 10px 10px 10px 20px;
+}
+
+#optionsTable { 
+	background-color: #a4bfca;
+	border-collapse: collapse;
+	width: 910px; 
+}
+
+#optionsTable td {
+  	border-bottom: 10px solid #f2f2f2;
+	padding-right: 25px;
+	padding-left: 10px;
+}
+
+#block {
+	border-bottom: 10px solid #f2f2f2;
+	background-color: #a4bfca;
+	margin: 10px 10px 10px 10px;
+	vertical-align: middle;
+	height: 60px;
+}
+
+.blockSubject {
+	color: #fff;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 15px;
+	width: 110px;
+}
+
+.optDescription { 
+	font-size: 11px;
+	padding-bottom: 10px;
+}
+
+/***********************************
+		FOOTER
+***********************************/
+
+#footer {
+	height: 75px;
+	background-color: #464646;
+}
+
+.footMessage {
+	padding: 35px 5px 5px 5px;
+	margin: 20px 0 0 20px;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: sans-sherif;
+	border: 0px solid #aaa;
+	color: #aaa;
+}
+
+.footMessage a {
+	text-decoration: none;
+	color: #aaa;
+}
+
+#footer img {
+	float: left;
+	border: none;
+	padding: 20px 10px 0 20px;
+}
+
+/***********************************
+		GENERAL STYLES
+***********************************/
+
+#logo {
+	float: left;
+	border: none;
+	padding-left: 15px;
+	padding-right: 10px;
+}
+
+#logOut {
+	position: absolute;
+	top: 7px;
+	right: 15px;
+	color: #aaa;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#logOut a {
+	color: #aaa;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#simpleTitle h2 {
+	color: #000;
+	widht: 100px;
+	height: 25px;
+	padding: 0 5px 0 15px;
+	marging-left: 20px;
+	font-size: 30px;
+	background: transparent url(images/simpleTitle.png) repeat-x bottom left;	
+}
+
+#simpleBox {
+	margin: 0 0 0 20px;
+	float: left;
+	display: inline;
+	font-size:small;
+	background: #f2f2f2;
+	border: 3px solid #ddd; 
+	overflow-x: none;
+	overflow-y: auto;
+}
+
+#simpleUl li {
+	padding: 0 0 0 0;
+	text-decoration: none;
+	font-size: 12px;
+	list-style-type: none;
+	margin: 3px;
+}
+
+#simpleUl p {
+	font-size: 20px;	
+}
+
+#simpleUl a, a:hover {
+	text-decoration: none;
+}
+
+#simpleUl img {
+	border: none;
+	padding: 0 5px 0 0;
+}
+
+#simpleTable thead th {
+	color: #fff;
+	padding: 5px 0px 5px 5px;
+	font-size: small;
+	text-align: left;
+	background-color: #464646;
+}
+
+#simpleTable th {
+	background-color: #ffffff;
+}
+
+#simpleTable td {
+	font-size: 12px;
+	vertical-align: text-top;
+	line-height: 1.3em;
+	background-color: #ffffff;
+}
+
+#simpleTable tr {  border-bottom: 1px solid #cfe3ec;}
+
+#simpleTable a {
+	text-decoration: none;
+	border-bottom: 1px dotted;
+	color: #2583ad;
+}
+
+#simpleTable {
+	width: 950px;
+	border: 1px solid #cfe3ec;
+	border-collapse: collapse;
+	color: #2583ad;
+}
+
+.checkCol {
+	text-align: right;
+	width: 1.5em;
+	padding: 0;
+}
+
+.numCol { 
+	width: 5px;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 10px;
+	white-space: nowrap; 
+}
+
+#modifTable td {
+	padding: 0 10px 0 0;
+	text-align: right;
+	align: right;
+	line-height: 1.3em;
+	background-color: transparent;
+}
+
+#modifTable {
+	text-align: right;
+	align: right;
+	max-width: 900px;
+	border-collapse: collapse;
+	color: #2583ad;
+}
+
+#simpleFieldset {
+	margin: 0 50px 0 0;
+	border: 1px solid #ddd;
+	float: left;
+	height: 350px;
+	text-align: right;
+	width: 380px;
+}
+
+.authorsFieldset { 
+	height: 200px !important;
+}
+
+.expand { width: 120%;}
+
+#simpleLegend {
+	color: #5fb939;
+	font-weight: bold;
+	padding: 0 0 0 2px;
+}
+
+#simpleButtonBox {
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+
+input[type=text], input[type=password], select {
+	background-color: #f4f4f4;
+	border: 1px solid #b2b2b2;
+	height: 25px;
+}
+
+input[type=text]:focus, select:focus, textarea:focus {
+	background-color:#fff;
+	border: 1px solid #b2b2b2;
+	color: #000;
+}
+
+.widgetsLog {
+	background-color: #ccc;	
+	padding: 5px;
+	min-width: 350px;
+	max-width: 350px;
+}
+
+#listsTitle {
+	font-size: 15px;
+	border-bottom: #ddd solid;
+	padding: 0px;
+	margin-bottom: 2px;
+	width: 350px;
+}
+
+.widgetsLists {
+	list-style-type: none;
+	min-height: 300px;
+	width: 260px;
+	margin-right: 200px;
+} 
+
+#widgetAction {
+	float:right;
+}
+
+#widgetsAvailable h4, #widgetsEnabled h4, .draging {
+	margin: 0 0 1em;
+	font-size: 12px;
+	color: #fff;
+	min-height: 20px;
+	max-height: 20px;
+	padding: 5px 5px 5px 20px;
+	min-width: 260px;
+	max-width: 260px;
+	vertical-align: middle;
+  	cursor: move;
+}
+
+#widgetsAvailable h4 {
+	background-color: #539bbb;
+}
+
+#widgetsEnabled h4 {
+	background-color: #1f6f94;
+}
+
+.draging { background-color: #aaa;}
+
+#simpleFieldset, #menu a.selected, #subMenu a.selected, 
+#panelTitle, .footMessage, #navBar, #navButton, .widgetsItems h4, .draging,
+#widgetsLog, .widgHeader {
+	/*Top-Left*/
+	-moz-border-radius-topleft: 4px;
+	-khtml-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	
+	/*Top-Right*/
+	-moz-border-radius-topright: 4px;
+	-khtml-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#simpleFieldset, #menu a.selected, #subMenu a.selected, 
+#panelTitle, .footMessage, #navBar, #navButton, .widgetsItems h4, .draging,
+#widgetsLog, .dashWidget {
+ 	
+	/*Bottom-Left*/
+	-moz-border-radius-bottomleft: 4px;
+	-khtml-border-bottom-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	
+	/*Bottom-Right*/
+	-moz-border-radius-bottomright: 4px;
+	-khtml-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+#navPanel { 
+	margin-top: 30px; 
+	height: 60px;
+	margin-bottom: 20px;
+}
+
+#panelTitle {
+	z-index: 1;
+	position: absolute;
+	border: 1px solid;
+	color: #fff;
+	background-color: #2583ad;
+	padding: 10px 10px 10px 10px;
+	margin-left: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: sans-sherif;
+}
+
+#navBar {
+	position: absolute;
+	z-index: 0;
+	background-color: #cfe3ec;
+	border: 1px solid;
+	color: #fff;
+	padding: 10px 0px 0px 10px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 940px;
+	height: 35px;
+	vertical-align: bottom;
+}
+
+#navBar.addEditBlog { width: 855px; } 
+
+#navBar.addEditAuthor { width: 450px; }
+
+#navBar.optionsBar { width: 900px}
+
+#navButton {
+	color:#fff;
+	float: right;
+	background-color: #539bbb;
+	border: 1px solid;
+	font-size: 15px;
+	font-famili: sans-serif;
+	padding: 3px 3px 3px 3px;
+	margin-right: 10px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#navButton a {	text-decoration: none; color:#fff;}
+
+.navBarText {
+	float: right;
+	font-size: 15px;
+	font-famili: sans-serif;
+	padding: 3px 3px 3px 3px;
+	margin-right: 10px;
+}
+
+/***********************************
+		LOGIN
+***********************************/
+
+#login{
+	background: #f2f2f2;
+	border: 3px solid #ddd; 	
+	width: 400px;
+	height: 330px;
+	margin: 20px auto 25px auto;
+	padding: 25px 0px 25px 0px;
+	position: relative;
+}
+
+#login p {
+	padding: 0 0 0 0;
+	margin-left: 70px;
+}
+
+#login a {
+	color: #000;	
+	paddind: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+#login h3 {
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	font-size: 12px;
+}
+
+#login input[type=text], input[type=password] {
+	background-color: #f4f4f4;
+	border: 1px solid #b2b2b2;
+	height: 25px;
+}
+
+#login input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus {
+	background-color:#fff;
+	border: 1px solid #b2b2b2;
+	color: #000;
+}
+
+#login input[type=submit] {
+	border: 3px double #999;
+	height: 30px;
+	font-weight: bold;
+	font-size: 16px;
+	border-left-color: #ccc;
+	border-top-color: #ccc;
+	color: #333;
+	float:right;
+	margin-right: 50px;
+}
+
+#login_error {
+	float:left;
+	border: 2px solid red;
+	width: 300px;
+	height: 50px;
+	background: #ffcb08;
+	padding: 0 auto 0 auto;
+	margin-top: 10px;
+	margin-left: 50px;
+	position:relative;
+}
+
+#login_error p {;
+	margin: 0 0 0 0;
+	font-weight: bold;
+}
+
+/********************************************
+DASH WIDGETS
+********************************************/
+.dashLists {
+	float:left;
+	min-height: 200px;
+	width:350px;
+	list-style-type: none;	
+}
+
+.widgetArrow {
+	float:left;
+	cursor: pointer;
+	padding: 10px 10px 0 15px;
+}
+
+.dashDraging {
+	background-color: #ddd;
+	border: 1px dashed #fff;
+}
+
+.widgHeader h4 {
+	padding-top: 7px;
+	padding-left: 10px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+.widgHeader {
+	cursor: move;
+	color: #FFF;
+	font-weight: bold;
+	position: relative;
+	width: 350px;
+	height: 40px;
+	z-index: 1;
+	background: transparent url(images/dashWig_blue.png) repeat-x top;
+}
+
+.widgContent {
+	color: #000;
+	padding-left: 10px;
+	text-transform: capitalize;
+}
+
+.dashItem {
+	margin-bottom: 20px;	
+}
+
+.dashWidget {
+	background-color: #fff;
+	padding: 0px;
+	line-height: 30px;
+}
+
+/****************************************
+ *			 LOGS TABLE
+ ****************************************/
+
+.logsTable {  
+	margin: 15px;
+	border-collapse: collapse;
+}
+
+.logsTable thead th {
+ 	padding-right: 30px;
+	text-align: center;
+ }
+ 
+.logsTable td {
+ 	border-width: 0px 0px 1px 0px;
+	border-style: none none solid none;
+	border-color: #2583ad;
+ 	padding: 0 10px 0 10px;	
+ }
+ 
+.logsTable td.tableId {
+	text-align: center;
+ }
+ 
+.logsTable tr.error {
+ 	background-color: #b23636;
+ }
+ 
+.logsTable tr.warning {
+ 	background-color: #e5e539;
+ }
+ 
+.logsTable tr.logs {
+ 	background-color: #c7eec7;
+ }
+

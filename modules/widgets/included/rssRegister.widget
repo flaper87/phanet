@@ -1,0 +1,35 @@
+<?php
+function rssRegisterDependencies() {
+	return array('users');
+}
+
+function rssRegisterWidget() {
+	global $srv;
+	
+	$output[] = "<div class=\"block\">";
+		$output[] = "<div class=\"title\"><h2><span class=\"dark\">Register Your Feed!</span></h2></div>";
+		$output[] = "<div class=\"text\">";
+		
+				if ($_SESSION["rssRegisterError"] != "") {
+					$output[] = "<b>".$_SESSION["rssRegisterError"]."</b>";
+					$output[] = "<br /><br />";
+					$_SESSION["rssRegisterError"] = "";
+				}
+				
+				$output[] = "<form action='".$srv->buildUrl("?user=addRss")."' method='post'>";
+				$output[] = "Name:<br/><input type=\"text\" name=\"phanetTitle\" /> <br/><br/>";
+				$output[] = "Description:<br/><input type=\"text\" name=\"phanetDesc\" /> <br/><br/>";
+				$output[] = "Site Url:<br/><input type=\"text\" name=\"phanetUrl\" /> <br/><br/>";
+				$output[] = "Site Feed:<br/><input type=\"text\" name=\"phanetRss\" /> <br/><br/>";
+				$output[] = "Owner Nickname:<br /><input type=\"text\" name=\"phanetNick\" /> <br/><br/>";
+				$output[] = "Owner Fullname:<br/><input type=\"text\" name=\"phanetFull\" /> <br/><br/>";
+				$output[] = "Owner Email:<br/><input type=\"text\" name=\"phanetEmail\" /> <br/><br/>";
+				$output[] = "<input type=\"submit\" name=\"phanetRssregister\" value=\"Register\" /> <br />";
+				$output[] = "</form>";
+			
+		$output[] = "</div>";
+		$output[] = "<div class=\"close\"></div>";
+	$output[] = "</div>";
+	
+	return join("\n", $output);
+}

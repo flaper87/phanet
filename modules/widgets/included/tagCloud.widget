@@ -1,0 +1,50 @@
+<?php
+
+function getCloudTags() {
+	global $ptdb;
+
+	$query = "SELECT * from {tags} ORDER BY label";
+	$tags = $ptdb->fetchArray($ptdb->query($query));
+	
+	foreach ( $tags as $key => $tag) {
+		$times = $ptdb->fetchRows($ptdb->query("SELECT count(*) FROM {posts} as p " .
+												"where p.tags like '%:".$tag[id].":%'"));
+		$tags[$key]['times'] = $times[0][0];
+		if ( $tags['max'] < $tags[$key]['times'] ) $tags['max'] = $tags[$key]['times'];
+		if ( $tags['min'] > $tags[$key]['times'] ) $tags['min'] = $tags[$key]['times'];
+	}
+	return $tags;
+}
+
+function tagCloudWidget() {
+	global $srv;
+	
+	$tags = getCloudTags();
+	$minFontSize = 12;
+	$maxFontSize = 30;
+	$spread = $tags['max'] - $tags['min'];
+	unset($tags['max']);
+	unset($tags['min']);
+	
+	($spread==0)?$spread=1:pass;
+	
+	$output[] = '<div class="block">';
+	$output[] = '<div id="notToggle" style="text-align: center; background: transparent !important;" class="text">';
+	
+	foreach ($tags as $tag) {
+		$size = $minFontSize + ($tag['times'] - $tags['min']) 
+		* ($maxFontSize - $minFontSize) / $spread;
+		
+		$cloud_tags[] = '<a style="font-size: '. floor($size) . 'px' 
+			. '" class="tag_cloud" href="'. $srv->buildUrl("?tag=".$tag['label']) 
+			. '" title="\'' . $tag['label']  . '\' returned a count of ' . $tag['times'] . '">' 
+			. stripslashes($tag['label']) . '</a>';
+	}
+	if ($cloud_tags) {
+		$cloud = join("\n", $cloud_tags) . "\n";
+	} else {
+		$cloud = "No Tags";
+	}
+	$output[] = $cloud.'</div></div>';
+	return join("\n", $output);
+}

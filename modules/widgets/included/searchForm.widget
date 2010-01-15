@@ -1,0 +1,39 @@
+<?php
+
+function searchFormWidget() {
+	global $srv;
+			$output[] = "<div class=\"block\">";
+		
+		if ( isset($_GET['advanceSearch'])) {
+				$_SESSION['showAdvanceSearch'] = True;
+				$output[] = "<form action='".$srv->getInstallRadix()."' method='post'>";
+				$output[] = "<div class=\"title\"><h2><span class=\"dark\">Advanced Search</span></h2></div>";
+				$output[] = "<div id=\"notToggle\" class=\"text\">";
+				$output[] = "<p style=\"padding-left:24px;\">Date: <input type=\"text\" name=\"dateSearch\">(YYYY/MM/DD)</p><br />";
+				$output[] = "<p style=\"padding-left:25px;\">Title:   <input type=\"text\" name=\"titleSearch\"></p><br />";
+				$output[] = "<p style=\"padding-left:9px;\">Author:  <input type=\"text\" name=\"authorSearch\"></p><br />";
+				$output[] = "<p>Content: <input type=\"text\" name=\"contentSearch\" /> </p><br />";
+				$output[] = "<input type=\"submit\" name=\"advanceSearch\" value=\"Search\" /> <br />";
+				$output[] = "</div>";
+				$output[] = "<div class=\"close\"></div>";
+				$output[] = "</form>";
+		} else {
+			$_SESSION['showAdvanceSearch'] = False;
+			$output[] = "<script src=\"".$srv->getPath('media/js/jquery/plugins/jquery.form.js')."\" type=\"text/javascript\"></script>";
+			$output[] = "<script src=\"".$srv->getPath('modules/search/js/liveSearch.js')."\" type=\"text/javascript\"></script>";
+			$output[] = "<form id=\"searchForm\" action='".$srv->getInstallRadix()."' method='get'>";
+			$output[] = "<h5>Search:</h5>";
+			//$output[] = "<div style=\"padding-right: 90px; float:right;\" id=\"searchLoading\"><img src=\"".$srv->getPath('media/stop_grey.png')."\" /></div>"; 
+			$output[] = "<input type=\"text\" name=\"search\" />";
+			$output[] = "</form>";			
+			$output[] = "<form action='".$srv->getInstallRadix()."' method='get'>";
+			$output[] = "<div style=\"float:right;\" id=\"buttonLink\">";
+			$output[] = "<a href='".$srv->buildUrl("?advanceSearch=")."'>Advanced Search</a>";
+			$output[] = "</div>";
+			$output[] = "</form>";
+			
+		}
+	$output[] = "</div>";	//Block
+
+	return join("\n", $output);
+}

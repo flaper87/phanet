@@ -1,0 +1,74 @@
+<?php
+
+function phanetStats() {
+	global $admldr;
+		
+		echo showWidgetCss();
+		
+			$output[] = '<div class="dashWidget">';
+				$output[] = '<div class="widgContent">';
+				
+					$output[] = '<table class="postStats">';
+					
+						$output[] = "<thead>";
+							$output[] = "<tr>";
+								
+								$output[] = '<th scope="col">Type</th>';
+								$output[] = '<th scope="col">Number</th>';
+								
+							$output[] = "</tr>";
+						$output[] = "</thead>";
+						
+						$output[] = "<tbody>";
+					$pass=0;
+					foreach ( getStats() as $key=>$stat ) {
+						( ( $pass % 2 ) == 0)?$class='class="normal"':$class='class="dark"';
+						
+						$output[] = '<tr '.$class.'>';
+							$output[] = '<td class="type">'.$key.'</td>';
+							$output[] = '<td>'.$stat.'</td>';
+						$output[] = '</tr>';
+						
+						$pass++; 
+					}
+						$output[] = "</tbody>";
+					$output[] = '</table>';	
+				$output[] = '</div>';
+			$output[] = '</div>';	//Block
+			
+	return join("\n", $output);
+}
+
+function showWidgetCss() {
+	$output[] = '<style type="text/css">';
+	$output[] = '.postStats{ ' .
+					'border-collapse: collapse; ' .
+					'margin:15px;' .
+					'width: 250px;}';
+	$output[] = '.postStats thead th { text-align: left; }';
+	$output[] = '.postStats td {' .
+					'border-width: 0px 0px 1px 0px;' .
+					'border-style: none none solid none;' .
+					'border-color: #2583ad;' .
+					'padding: 0 10px 0 10px;}';
+	$output[] = '.postStats tbody td.type { font-weight: bold;}';
+	$output[] = '.postStats tbody tr { background-color: #ddd;}';
+	$output[] = '.postStats tbody tr.dark { background-color: #ccc;}';
+	$output[] = '</style>';
+	
+	return join("\n", $output);	
+}
+
+function getStats() {
+	global $ptdb;
+	
+	foreach ( array('posts','blogs','users', 'tags', 'categories') as $stat) {
+		$query = "SELECT  * FROM {".$stat."}";
+	
+		$ptdb->query($query);
+		$STATS[$stat] = count($ptdb->fetchArray());
+	}
+	
+	return $STATS;
+	
+}

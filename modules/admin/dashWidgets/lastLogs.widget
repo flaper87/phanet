@@ -1,0 +1,48 @@
+<?php
+
+function lastLogs() {
+	global $admldr;
+	
+			$output[] = '<div class="dashWidget">';
+				$output[] = '<div class="widgContent">';
+					$output[] = '<table id="logsTable" class="logsTable">';
+					
+						$output[] = "<thead>";
+							$output[] = "<tr>";
+								
+								$output[] = "<th scope=\"col\">User Id</th>";
+								$output[] = "<th scope=\"col\">Type</th>";
+								$output[] = "<th scope=\"col\">Date</th>";
+								
+							$output[] = "</tr>";
+						$output[] = "</thead>";
+						
+						$output[] = "<tbody>";
+					foreach ( getLogs() as $key=>$stat) {
+						if ($stat['severity'] == 5 ) $class = 'class="logs"';
+						if ($stat['severity'] < 5 ) $class = 'class="warning"';
+						if ($stat['severity'] < 3 ) $class = 'class="error"';
+						
+						$output[] = '<tr '.$class.'>';
+							$output[] = '<td class="tableId">'.$stat['uid'].'</td>';
+							$output[] = '<td>'.$stat['type'].'</td>';
+							$output[] = '<td>'.date('d/m/Y, H:i', $stat['timestamp']).'</td>';
+						$output[] = '</tr>'; 
+					}
+						$output[] = "</tbody>";
+					$output[] = '</table>';	
+				$output[] = '</div>';
+			$output[] = '</div>';	//Block
+			
+	return join("\n", $output);
+}
+
+function getLogs() {
+	global $ptdb;
+	
+	$query = "SELECT uid,type,severity,timestamp FROM {watchdog} ORDER BY timestamp DESC LIMIT 0,5";
+	
+	$ptdb->query($query);
+	
+	return $ptdb->fetchArray();
+}

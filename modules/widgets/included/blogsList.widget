@@ -1,0 +1,78 @@
+<?php
+
+function blogsListWidget() {
+	
+	$blogs = getFeeds();
+	
+	$output[] = blogsWidgetJS();
+	$output[] = '<div class="block">';
+		$output[] = '<div class="title"><h2><span class="dark">Registered Blogs ('.count($blogs).')</span></h2></div>';
+		$output[] = '<div class="text">';
+		
+		if ( $blogs ) {
+			$output[] = '<ul id="blog">';
+			
+			foreach($blogs as $blog) {
+				$output[] = '<li><input style="margin-left:5px;" type="checkbox" id="showBlog" name="'.$blog['name'].'"  checked="checked"><a style="padding-left:5px;padding-right:5px;" href="'.$blog['url'].'" title="'.$blog['description'].'">'.$blog['name'].'</a></li>';                                  
+			}
+			
+			$output[] = '</ul>';
+		}
+		$output[] = '</div>';
+		$output[] = '<div class="close"></div>';
+	$output[] = '</div>';
+	
+	return join("\n", $output);
+}
+
+function blogsWidgetJS() {
+
+$script=<<<html
+<script type="text/javascript" >
+
+$( document ).ready(function() {
+	
+	$("input:checkbox").click(function() { 
+		
+		var check = $(this).attr("name")
+		
+		if ( !$(this).is(":checked") ) {
+			
+			$( "div#posts div.title" ).each(function(){
+				
+				if ( $( "#blogname", this ).attr("name") == check ) {	
+					$( this.parentNode ).hide()
+				}
+			})
+		} else {
+			$( "div#posts div.title" ).each(function(){
+				
+				if ( $( "#blogname", this ).attr("name") == check ) {	
+					$( this.parentNode ).show()
+				}
+			})
+		}
+		
+	});
+		
+});
+
+function enDisBlog( check ) {
+	
+	console.log( check.select )
+	//for ( a in check ) {
+		//console.log( a )
+	//}
+	
+	$( "div#posts div.title" ).each(function(){
+		
+		if ( $( "#blogname", this ).attr("name") == check.attr("name") ) {	
+			$( this.parentNode ).hide()
+		}
+	})
+}
+</script>
+html;
+
+	return $script;
+}
