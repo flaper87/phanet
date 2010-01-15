@@ -17,8 +17,6 @@ $link = mysql_connect('localhost', 'root', 'root');
 					WHERE `name` = '".$installed."'";
 				$results = mysql_query($query);
 				$results = mysql_fetch_array($results);
-				echo $query;
-				echo '<br />';
 				if(!$results) {
 					array_push($uninstalledThemes, $installed);
 				}
@@ -31,8 +29,6 @@ $link = mysql_connect('localhost', 'root', 'root');
 	} else {
 		echo 'Couldn\'t connect to the database!';
 	}
-	
-print_r($uninstalledThemes);
 foreach($uninstalledThemes as $addNewTheme) {
 	if(empty($addNewTheme)) { continue; }
 	$link = mysql_connect('localhost', 'root', 'root');
@@ -48,7 +44,7 @@ foreach($uninstalledThemes as $addNewTheme) {
 				NULL ,  '".$addNewTheme."',  '".$addNewTheme."',  '0'
 				);";
 				if(mysql_query($query)) {
-					echo 'Theme list updated.';
+					echo 'Theme list updated.<br />';
 				}
 			}
 		}
