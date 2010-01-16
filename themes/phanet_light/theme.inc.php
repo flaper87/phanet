@@ -24,9 +24,9 @@ function themeTemplate($id=''){
 			$output[] = '<div class="post_content">{%text}</div>';
 			$output[] = '</div>';
 			break; */
-			$output[] = require('child_theme/index.php');
+			require('child_theme/index.php');
 		case 'page':
-			/* $output[] = '<div class="single_post">';
+			$output[] = '<div class="single_post">';
 			$output[] = '<div class="title_date">';
 			$output[] = '<p class="days">{%date:j}</p>';
 			$output[] = '<p class="month">{%date:M}</p>';
@@ -39,11 +39,10 @@ function themeTemplate($id=''){
 			$output[] = '</span>';
 			$output[] = '<div class="post_content">{%content}</div>';
 			$output[] = '</div>';
-			break; */
-			$output[] = require('child_theme/page.php');
+			break;
 		default:
 	}
-	return join("\n", $output);
+	return join("\n",$output);
 }
 
 function themeRender($params = array()){
@@ -65,7 +64,7 @@ function showThemeBody() {
 	
 	
 	//Start's the real boddy
-/*	$output[] = '<div id="menu">';
+	$output[] = '<div id="menu">';
 		$output[] = '<div class="title">';
 			$output[] = '<h1><a href="'.$srv->getInstallRadix().'">'.$stgs->getConf("sitename").'</a></h1>';
 			$output[] = '<div class="description">'.$stgs->getConf("sitedescription").'</div>';
@@ -80,20 +79,17 @@ function showThemeBody() {
 
 	$output[] = '<div id="site">';
 		$output[] = '<div id="content">';
-		$output[] = '<div id="pagetitle">'; */
-		
-		$output[] = require_once('child_theme/theme_body.php');
+		$output[] = '<div id="pagetitle">';
 		
 		$pages = getPages();
 		
-		/* $menu[] = '<img alt="pageicon" src="'.$srv->getPath("themes/phanet_dark/styles/images/page.gif").'" />';
+		$menu[] = '<img alt="pageicon" src="'.$srv->getPath("themes/phanet_dark/styles/images/page.gif").'" />';
 		$menu[] = '  <a style="color: #999999 !important;" href="'.$srv->getInstallRadix().'">Home</a> ';
 			
 		foreach ( $pages as $page ) {
 			$menu[] = '<img alt="pageicon" src="'.$srv->getPath("themes/phanet_dark/styles/images/page.gif").'" />';
 			$menu[] = '  <a style="color: #999999 !important;" href="'.$srv->buildUrl("?static=".$page->id).'">'.$page->page_title.'</a> ';
-		} */
-		$menu[] = require('child_theme/menu.php');
+		}
 		
 		//list($type, $value) = preg_split('/\//', $_GET['showJust'], 2, PREG_SPLIT_NO_EMPTY);
 		//if ($type == 'category' || $type == 'tag') $title = 'Showing <i>'.decodeUrlPiece($value).'</i>'. $type;

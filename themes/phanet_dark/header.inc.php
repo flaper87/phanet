@@ -3,7 +3,7 @@
 function loadThemeHeader() {
 	global $srv,$stgs;
 	
-	$output[]  = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+	/* $output[]  = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
 	
 	$output[] = '<html xmlns="http://www.w3.org/1999/xhtml">';
 	$output[] = '<head>';
@@ -23,7 +23,9 @@ function loadThemeHeader() {
 	$output[] = "<script src=\"".$srv->getPath('media/js/thickbox/thickbox.js')."\" type=\"text/javascript\"></script>";
 	$output[] = '</head>';
 	
-	$output[] = '<body baseurl="'.$srv->getInstallRadix().'">';
+	$output[] = '<body baseurl="'.$srv->getInstallRadix().'">'; */
+	
+	$output[] = require('child_theme/header.php');
 	
 	echo join( "\n", $output);
 }
