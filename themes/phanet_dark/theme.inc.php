@@ -119,11 +119,11 @@ function showThemeBody() {
 		}
 
            
-	$output[] = '</div>'; //-->posts
+	// $output[] = '</div>'; //-->posts
 		
 	// Content and Site are closed in the bottom.inc.php
 		
-	echo join("\n", $output);
+	echo '</div>';
 }
 
 function showPosts() {

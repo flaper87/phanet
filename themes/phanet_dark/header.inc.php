@@ -26,6 +26,4 @@ function loadThemeHeader() {
 	$output[] = '<body baseurl="'.$srv->getInstallRadix().'">'; */
 	
 	$output[] = require('child_theme/header.php');
-	
-	echo join( "\n", $output);
 }

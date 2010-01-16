@@ -10,6 +10,4 @@ function showThemeBottom() {
 	$output[] = '</html>'; */
 	
 	$output[] = require('child_theme/footer.php');
-	
-	echo join("\n", $output);
 }
