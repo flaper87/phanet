@@ -37,3 +37,22 @@ function siteInfo($arg) {
 			break;
 	}
 }
+
+function footnote() {
+	global $footnote; echo $footnote;
+}
+
+function pageTitle() {
+	global $page;
+	echo $page->page_title;
+}
+
+function pageContent() {
+	global $page;
+	echo html_entity_decode($page->page_content);
+}
+
+function pageDate($arg) {
+	global $page;
+	echo get_date($arg,$page->page_date);
+}
