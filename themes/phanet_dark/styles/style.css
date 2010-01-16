@@ -51,13 +51,12 @@ GENERAL STYLES
 *********************************************/
 
 div#site {
-	background-image: url(images/post_top.gif);
-	background-position: top;
-	background-repeat: no-repeat;
+	background: url(images/post_top.gif) top left;
+	padding-top: 10px;
 	margin: 20px auto 15px;
 	width: 946px;
-	padding: 25px 0px 0px;
 	position: relative;
+	overflow: hidden
 }
 
 div#site_bottom {
@@ -88,6 +87,10 @@ div#posts{
 	padding-left: 15px;
 	margin-left:20px;
 	/*border:dashed 1px #f00;*//*TEST*/
+}
+
+#posts:nth-child(odd) {
+	display: none
 }
 
 div#error{
@@ -620,6 +623,7 @@ div#pagetitle h2 {
 	font-size:1.4em;
 	padding: 0 0 0 20px;
 	color:#ddd;
+	overflow: hidden
 }
 
 div#pagetitle p {
