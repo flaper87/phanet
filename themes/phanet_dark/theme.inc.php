@@ -5,7 +5,7 @@ session_start();
 include_once ('header.inc.php');
 include_once ('sidebar.inc.php');
 include_once ('bottom.inc.php');
-require_once('themes/functions.php');
+require_once('include/themefunctions.inc.php');
 
 function themeTemplate($id=''){
 	global $page;
@@ -64,7 +64,7 @@ function themeRender($params = array()){
 }
 
 function showThemeBody() {
-	global $srv, $stgs;
+	global $srv, $stgs, $pages;
 	
 	
 	//Start's the real boddy
