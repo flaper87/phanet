@@ -1,14 +1,14 @@
 <div class="single_post">
 <div class="title_date">
-<p class="days">{%date:j}</p>
-<p class="month">{%date:M}</p>
+<p class="days"><?php echo get_date('j',$page->page_date); ?></p>
+<p class="month"><?php echo get_date('M',$page->page_date); ?></p>
 </div>
 <div class="title">
-<h4 id="blogname" name="{%blogName}">{%blog}</h4>
-<h4>{%title}</h4>
+<h4><?php echo $page->page_title; ?></h4>
 </div>
 <span class="footnote">
-{%footnote}
+<?php echo $footnote; ?>
 </span>
-<div class="post_content">{%text}</div>
+<div class="post_content"><?php echo html_entity_decode($page->page_content); ?></div>
 </div>
+<?php echo get_date('j',$page->page_date);
