@@ -140,7 +140,7 @@ function showPosts() {
 	$posts = getPosts( -1 );
 
 	if (!$posts) {
-		return "No Posts where found";
+	 	echo 'No posts were found!';
 	}
 
 	$i = 0;
