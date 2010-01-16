@@ -1,6 +1,6 @@
 <div id="menu">
 	<div class="title">
-		<h1><a href="<?php echo $srv->getInstallRadix(); ?>"><?php $stgs->getConf("sitename"); ?></a></h1>
+		<h1><a href="<?php echo $srv->getInstallRadix(); ?>"><?php echo $stgs->getConf("sitename"); ?></a></h1>
 		<div class="description"><?php echo $stgs->getConf("sitedescription"); ?></div>
 	</div>
 	
