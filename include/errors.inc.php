@@ -127,7 +127,7 @@ function smtp_error() {
 }
 
 function default_error($type) {
-	global $_GET;
+	global $_GET, $whdg;
 	
 	switch ($type) {
 		case "action":
