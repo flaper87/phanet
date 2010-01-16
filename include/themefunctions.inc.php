@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
 * A helpful list of functions to be used in the theme.
 */
 
@@ -55,4 +54,26 @@ function pageContent() {
 function pageDate($arg) {
 	global $page;
 	echo get_date($arg,$page->page_date);
+}
+
+function listPages($args = array('default')) {
+	global $pages, $page, $activetheme, $srv;
+	if($args['icon'] == 'true') { ?>
+	<img alt="pageicon" src=<?php echo $srv->getPath("themes/phanet_dark/styles/images/page.gif"); ?> />
+	<?php } ?>
+  <a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->getInstallRadix(); ?>">Home</a>
+	<?php
+	foreach ( $pages as $page ) {
+		if($args['icon'] == 'true') { ?>
+		<img alt="pageicon" src=<?php echo $srv->getPath("themes/phanet_dark/styles/images/page.gif"); ?> /> <?php } ?>
+		  <a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->buildUrl("?static=".$page->id); ?>"><?php echo $page->page_title; ?></a> 
+	<?php }
+}
+
+function adminLink() {
+	global $srv;
+	if ($_SESSION['userLogged'] && $_SESSION['adminLogged']) { ?>
+	</p>
+		<a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></h2>
+	<?php }
 }
