@@ -204,13 +204,6 @@ function getSettings() {
 	return $ptdb->fetchArray();
 }
 
-function installedThemes() {
-	global $ptdb;
-	
-	$ptdb->query("SELECT name FROM {themes}");
-	return $ptdb->fetchArray();
-}
-
 function getActionFunction( $action ) {
 	global $ptdb;
 	

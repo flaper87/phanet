@@ -36,7 +36,7 @@ $TABLES['settings']['fields'][]=array( "name"=>"value", "type"=>"varchar 1024", 
 $TABLES['settings']['rows'][]=array( "keyid"=>"'sitename'", "value"=>"'Phanet'");
 $TABLES['settings']['rows'][]=array( "keyid"=>"'sitedescription'", "value"=>"'Just an aggregator of feeds..'");
 $TABLES['settings']['rows'][]=array( "keyid"=>"'default_action'", "value"=>"'display'");
-$TABLES['settings']['rows'][]=array( "keyid"=>"'default_theme'", "value"=>"'phanet_dark'");
+$TABLES['settings']['rows'][]=array( "keyid"=>"'active_theme'", "value"=>"'phanet_dark'");
 $TABLES['settings']['rows'][]=array( "keyid"=>"'delete_posts'", "value"=>"'0'");
 $TABLES['settings']['rows'][]=array( "keyid"=>"'web_update'", "value"=>"'enabled'");
 $TABLES['settings']['rows'][]=array( "keyid"=>"'rewrite_url'", "value"=>"'disabled'");

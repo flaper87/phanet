@@ -472,7 +472,7 @@ class adminCore {
 				'sitedescription' => $_POST[siteDescription],
 				'language' => $_POST[siteLang],
 				'delete_posts' => $_POST[delPosts]?$_POST[delPosts]:0,
-				'default_theme' => $_POST[siteTheme],
+				'active_theme' => $_POST[siteTheme],
 				'web_update' => $webUpdate,
 				'rewrite_url' => $rewriteUrl,
 				) );

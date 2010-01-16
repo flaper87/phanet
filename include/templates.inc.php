@@ -13,7 +13,7 @@ class mainTpter {
 	function loadTheme() {
 		global $ptdb, $stgs;
 		
-		$theme = $stgs->getConf('default_theme');
+		$theme = $stgs->getConf('active_theme');
 		
 		$this->theme = (object) array( "name" => $theme, "path" => getThemePath($theme));;
 	}
