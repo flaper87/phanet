@@ -5,8 +5,11 @@ session_start();
 include_once ('header.inc.php');
 include_once ('sidebar.inc.php');
 include_once ('bottom.inc.php');
+require_once('themes/functions.php');
 
 function themeTemplate($id=''){
+	global $page;
+	global $footnote;
 	switch($id){
 		case 'post':
 		/*	$output[] = '<div class="single_post">';
@@ -190,6 +193,8 @@ function showPosts() {
 }
 
 function showPage() {
+	
+	global $footnote, $page;
 
 	$pages = getPages( $_GET["static"] );
 
@@ -201,17 +206,28 @@ function showPage() {
 		
 		$footnote = 'Written on '. get_date('r',$page->page_date);
 		
+		$needles = array(
+			'{%title}',
+			'{%content}',
+			'{%date}',
+			'{%date:j}',
+			'{%date:M}',
+			'{%footnote}',
+			'test',
+			);
 		$replacements = array(
-					'{%title}'=>$page->page_title,
-					'{%content}'=>html_entity_decode($page->page_content),
-					'{%date}'=>date('r',$page->page_date),
-					'{%date:j}'=>get_date('j',$page->page_date),
-					'{%date:M}'=>get_date('M',$page->page_date),
-					'{%footnote}'=>$footnote
+					$page->page_title,
+					html_entity_decode($page->page_content),
+					date('r',$page->page_date),
+					get_date('j',$page->page_date),
+					get_date('M',$page->page_date),
+					$footnote,
+					'testy',
 					);
 					
-		$output[] = strtr(themeTemplate('page'),$replacements);
+		$output[] = str_replace('{%text}', 'moth', themeTemplate('page'));
+		$output[] = 'LOL';
 	}
 	
-	return join("\n", $output);
+	return $output;
 }
