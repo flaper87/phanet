@@ -2,6 +2,8 @@
 
 function generalTemplate() {
 	global $srv, $stgs;
+	
+	require_once('updatethemes.inc.php');
 
 	$output[]  = "<div id=\"content\">";
 		
@@ -25,11 +27,7 @@ function generalTemplate() {
 	
 	$output[] = "<tr id=\"block\"><td class=\"blockSubject\">Theme: </td><td><select class=\"ops_combobox\" name=\"siteTheme\" id=\"siteTheme\" tabindex=\"4\">";
 	
-	foreach(installedThemes() as $theme):
-		$selected = "";
-		if ($theme['name'] == $stgs->getConf('default_theme')) $selected = 'selected="selected"';
-		$output [] = "<option $selected value=\"".$theme['name']."\">".$theme['name']."</option>";
-	endforeach;
+	$output[] = listThemes();
 	
 	$output[] = "</select></td>";		
 	
