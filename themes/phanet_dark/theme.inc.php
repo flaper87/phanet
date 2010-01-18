@@ -208,28 +208,7 @@ function showPage() {
 	foreach ( $pages as $page ) {
 		
 		$footnote = 'Written on '. get_date('r',$page->page_date);
-		
-		$needles = array(
-			'{%title}',
-			'{%content}',
-			'{%date}',
-			'{%date:j}',
-			'{%date:M}',
-			'{%footnote}',
-			'test',
-			);
-		$replacements = array(
-					$page->page_title,
-					html_entity_decode($page->page_content),
-					date('r',$page->page_date),
-					get_date('j',$page->page_date),
-					get_date('M',$page->page_date),
-					$footnote,
-					'testy',
-					);
-					
-		$output[] = str_replace('{%text}', 'moth', themeTemplate('page'));
-		$output[] = 'LOL';
+
 	}
 	
 	echo $output;
