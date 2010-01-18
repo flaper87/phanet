@@ -18,7 +18,7 @@ $activetheme = $row2[1]; // UGLY
 	if(empty($theme)) {continue;}
 		$selected = "";
 		if($theme == $activetheme) { $selected = ' selected'; }
-		echo "<option$selected value=\"".$theme."\">".$theme."</option>";
+		return "<option$selected value=\"".$theme."\">".$theme."</option>";
 	endforeach;
 	
 }
