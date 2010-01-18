@@ -8,8 +8,7 @@ include_once ('bottom.inc.php');
 require_once('include/themefunctions.inc.php');
 
 function themeTemplate($id=''){
-	global $page;
-	global $footnote;
+	global $page, $footnote;
 	switch($id){
 		case 'post':
 		/*	$output[] = '<div class="single_post">';
@@ -127,6 +126,8 @@ function showThemeBody() {
 }
 
 function showPosts() {
+	
+	global $footnote, $post;
 
 		//Not supported yet.. I'm working on it
 	if (!isset($_POST["searchPosts"]) && !isset($_POST["advanceSearch"]) && !isset($_GET["openSearch"])) {
@@ -137,7 +138,7 @@ function showPosts() {
 	
 	$output[] = '<div class="collapse_expand_all">Collapse All</div>';
 
-	$posts = getPosts( -1 );
+	$posts = getPosts(-1);
 
 	if (!$posts) {
 	 	echo 'No posts were found!';
@@ -189,7 +190,9 @@ function showPosts() {
 		$i++;
 	}
 	
-	return join("\n", $output);
+	// return join("\n", $output);
+	
+	echo $output;
 }
 
 function showPage() {
@@ -229,5 +232,5 @@ function showPage() {
 		$output[] = 'LOL';
 	}
 	
-	return $output;
+	echo $output;
 }
