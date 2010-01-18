@@ -72,8 +72,8 @@ function listPages($args = array('default')) {
 
 function adminLink() {
 	global $srv;
-	if ($_SESSION['userLogged'] && $_SESSION['adminLogged']) { ?>
+	// if ($_SESSION['userLogged'] && $_SESSION['adminLogged']) { ?>
 	</p>
 		<a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></h2>
-	<?php }
+	<?php // }
 }
