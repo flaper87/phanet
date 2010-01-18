@@ -77,3 +77,23 @@ function adminLink() {
 		<a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></h2>
 	<?php // }
 }
+
+function postTitle() {
+	global $post;
+	echo $post->title;
+}
+
+function postDate($arg) {
+	global $post;
+	echo get_date($arg,$post->date);
+}
+
+function blogName() {
+	global $post;
+	echo $post->name;
+}
+
+function postContent() {
+	global $post;
+	echo html_entity_decode($post->text);
+}
