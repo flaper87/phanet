@@ -31,8 +31,8 @@ class mainTpter {
 	 */
 	function launchTheme( $name='' ) {
 		
-		if(file_exists("themes/".$this->theme->path."/theme.inc.php")){
-			include "themes/".$this->theme->path."/theme.inc.php";
+		if(file_exists("themes/theme.inc.php")){
+			include "themes/theme.inc.php";
 	
 			if(function_exists("themeRender")) {
 				themeRender();
