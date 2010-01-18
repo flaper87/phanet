@@ -37,8 +37,6 @@ function themeRender($params = array()){
 function showThemeBody() {
 	global $srv, $stgs, $pages, $activetheme;
 		
-		$output[] = require_once($activetheme.'/theme_body.php');
-		
 		$pages = getPages();
 		
 		$menu[] = require($activetheme.'/menu.php');
