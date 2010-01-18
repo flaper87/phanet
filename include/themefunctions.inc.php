@@ -97,3 +97,34 @@ function postContent() {
 	global $post;
 	echo html_entity_decode($post->text);
 }
+
+function blogList() {
+	$blogs = getFeeds();
+	foreach($blogs as $blog) { ?>
+	<li>
+		<a style="padding-left:5px;" href="<?php echo $blog['url']; ?>" title="<?php echo $blog['description']; ?>">
+			<?php echo $blog['name']; ?>
+		</a>
+	</li>                                  
+<?php }
+}
+
+function widgetized() {
+	global $wgts, $stgs;
+	if(is_object($wgts) && $stgs->getConf('widgetizer') == "enabled") {
+		return true;
+	}
+}
+
+function sidebarMessages() {
+	if (!empty($_SESSION['logMessage'])) { ?>
+	<div class="block">
+		<div class="title"><h2><span style="color:#f67106 !important;" class="dark">Message For You</span></h2></div>
+		<div class="text">
+		<?php echo $_SESSION['logMessage']; ?>
+		</div>
+		<div class="close"></div>
+	</div>
+
+	<?php $_SESSION['logMessage'] = ''; }
+}
