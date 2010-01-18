@@ -61,7 +61,7 @@ class widgetsHandler {
 		if ( !$items )
 			return "No Widgets enabled yet";
 			
-		return join("\n", $items);
+		echo join("\n", $items);
 	}
 	
 	function widgetsHandler() {;
