@@ -1,9 +1,9 @@
 <?php
 
+require_once('updatethemes.inc.php');
+
 function generalTemplate() {
-	global $srv, $stgs;
-	
-	require_once('updatethemes.inc.php');
+	global $srv, $stgs, $installedThemes;
 
 	$output[]  = "<div id=\"content\">";
 		
@@ -26,7 +26,7 @@ function generalTemplate() {
 	$output[] = "<tr id=\"block\"><td class=\"blockSubject\">Delete posts:</td><td><input type=\"text\" size=30 name=\"delPosts\" tabindex=\"3\" value=\"".$stgs->getConf('delete_posts')."\"> <span class=\"optDescription\">Timeout in days to delete the old posts. Leave blank to keep</span> </td></tr>";
 	
 	$output[] = "<tr id=\"block\"><td class=\"blockSubject\">Theme: </td><td><select class=\"ops_combobox\" name=\"siteTheme\" id=\"siteTheme\" tabindex=\"4\">";
-	
+
 	$output[] = listThemes();
 	
 	$output[] = "</select></td>";		

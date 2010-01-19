@@ -3,8 +3,7 @@ function listThemes() {
 global $ptdb;
 $ptdb->query("SELECT * FROM {settings} WHERE `keyid` = 'active_theme'");
 $row = $ptdb->fetchArray();
-$row2 = $row[0];
-$activetheme = $row2[1]; // UGLY
+$activetheme = $row[0][1];
 
 	$installedThemes = array('');
 	
@@ -15,10 +14,11 @@ $activetheme = $row2[1]; // UGLY
 		}
 	}
 	foreach($installedThemes as $theme):
-	if(empty($theme)) {continue;}
+	if(!empty($theme)) {
 		$selected = "";
 		if($theme == $activetheme) { $selected = ' selected'; }
-		return "<option$selected value=\"".$theme."\">".$theme."</option>";
+		$output .= "<option".$selected." value=\"".$theme."\">".$theme."</option>";
+	}
 	endforeach;
-	
+	return $output;
 }
