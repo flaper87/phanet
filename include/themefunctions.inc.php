@@ -61,26 +61,34 @@ function listPages($args = array('default')) {
 	if($args['icon'] == 'true') { ?>
 	<img alt="pageicon" src=<?php echo $srv->getPath("themes/phanet_dark/styles/images/page.gif"); ?> />
 	<?php } ?>
-  <a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->getInstallRadix(); ?>">Home</a>
+  <li><a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->getInstallRadix(); ?>">Home</a></li>
 	<?php
 	foreach ( $pages as $page ) {
 		if($args['icon'] == 'true') { ?>
 		<img alt="pageicon" src=<?php echo $srv->getPath("themes/phanet_dark/styles/images/page.gif"); ?> /> <?php } ?>
-		  <a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->buildUrl("?static=".$page->id); ?>"><?php echo $page->page_title; ?></a> 
+		 <li><a class="pagelink<?php echo ' ' . $args['class']; ?>" href="<?php echo $srv->buildUrl("?static=".$page->id); ?>"><?php echo $page->page_title; ?></a></li>
 	<?php }
 }
 
 function adminLink() {
-	global $srv;
-	// if ($_SESSION['userLogged'] && $_SESSION['adminLogged']) { ?>
-	</p>
-		<a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></h2>
-	<?php // }
+	global $srv; ?>
+		<li class="admin_link"><a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></li>
+	<?php
 }
 
 function postTitle() {
 	global $post;
 	echo $post->title;
+}
+
+function blogURL() {
+	global $post;
+	echo $post->url;
+}
+
+function postPermalink() {
+	global $post;
+	echo $post->link;
 }
 
 function postDate($arg) {
