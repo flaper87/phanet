@@ -20,8 +20,8 @@ function tagCloudWidget() {
 	global $srv;
 	
 	$tags = getCloudTags();
-	$minFontSize = 12;
-	$maxFontSize = 30;
+	$minFontSize = 8;
+	$maxFontSize = 24;
 	$spread = $tags['max'] - $tags['min'];
 	unset($tags['max']);
 	unset($tags['min']);
