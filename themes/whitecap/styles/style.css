@@ -8,8 +8,8 @@ body {
 	font-family: "Trebuchet MS", Arial, sans-serif;
 	width: 800px;
 	border: 1px solid #ddd;
-	border-width: 0 1px;
-	margin: 0 auto
+	border-width: 1px 1px 0;
+	margin: 40px auto 0;
 }
 
 a {
@@ -25,35 +25,27 @@ a:hover {
 	background: #69485C;
 }
 
-#header h1 a {
-	line-height: 52px;
-	display: block;
-	color: white;
-	font-family: Arial;
-	float: right;
-	margin-top: 110px;
-	text-decoration: none;
-	font-size: 72px;
-	font-weight: normal;
-	margin-right: 18px;
-	letter-spacing: -5px;
-}
-
-#header h1 a:hover {
-	text-decoration: overline;
-}
-
-#header .description {
-	float: right;
-	color: #fff9fc;
-	padding-top: 129px;
-	line-height: 14px;
-	margin-right: 10px;
-	font-size: 13px
-}
-
-.title {
+#header .title {
+	padding: 50px 34px;
 	overflow: hidden;
+}
+
+.title h1 {
+	font-size: 30px;
+	text-shadow: 0 0 1px #69485C;
+	letter-spacing: -1px;
+	line-height: 1em
+}
+
+.title h1 a {
+	color: white
+}
+
+.title .description {
+	font-size: 10px;
+	color: white;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	margin-top: 2px
 }
 
 #header .nav {
@@ -62,23 +54,23 @@ a:hover {
 
 #header .nav ul {
 	overflow: hidden;
-	padding-left: 5px;
+	padding: 0 3px;
 }
 
 #header .nav li {
 	float: left;
 	padding-bottom: 3px;
 	list-style: none;
+	font-family: "Lucida Grande", Arial, sans-serif;
 }
 
 #header .nav li a {
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 14px;
 	padding: 9px 8px 8px;
 	color: white;
 	text-decoration: none;
-	text-shadow: 0 0 1px #97768A
 }
 
 #header .nav li a:hover {
@@ -87,8 +79,12 @@ a:hover {
 	border-bottom-right-radius: 3px;
 }
 
+ul li.admin_link {
+	float: right !important;
+}
+
 .post_title h3 {
-	font-size: 28px;
+	font-size: 24px;
 	text-shadow: 0 0 1px white;
 	letter-spacing: -1px;
 }
@@ -165,14 +161,15 @@ a:hover {
 }
 
 .sidebar .title h2 {
-	font-size: 18px;
-	color: #777;
+	font-size: 15px;
+	color: #444;
 	font-weight: normal;
 	text-decoration: underline;
+	font-family: Verdana, sans-serif
 }
 
 .sidebar .block {
-	margin-bottom: 18px
+	margin-bottom: 20px
 }
 
 .sidebar form #buttonLink {
@@ -187,4 +184,14 @@ a:hover {
 	border-width: 1px 0;
 	padding: 4px;
 	white-space: normal
+}
+
+.sidebar ul#blog {
+	margin-top: 7px
+}
+
+.sidebar ul#blog li {
+	list-style-position: inside;
+	padding: 3px 0;
+	font-size: 0.75em
 }
