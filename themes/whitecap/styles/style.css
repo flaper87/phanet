@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #f1f1f1;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	width: 800px;
+	border: 1px solid #ddd;
+	border-width: 0 1px;
+	margin: 0 auto
+}
+
+a {
+	color: #69485C;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#header {
+	background: #69485C;
+}
+
+#header h1 a {
+	line-height: 52px;
+	display: block;
+	color: white;
+	font-family: Arial;
+	float: right;
+	margin-top: 110px;
+	text-decoration: none;
+	font-size: 72px;
+	font-weight: normal;
+	margin-right: 18px;
+	letter-spacing: -5px;
+}
+
+#header h1 a:hover {
+	text-decoration: overline;
+}
+
+#header .description {
+	float: right;
+	color: #fff9fc;
+	padding-top: 129px;
+	line-height: 14px;
+	margin-right: 10px;
+	font-size: 13px
+}
+
+.title {
+	overflow: hidden;
+}
+
+#header .nav {
+	background: #97768A;
+}
+
+#header .nav ul {
+	overflow: hidden;
+	padding-left: 5px;
+}
+
+#header .nav li {
+	float: left;
+	padding-bottom: 3px;
+	list-style: none;
+}
+
+#header .nav li a {
+	display: block;
+	font-size: 14px;
+	line-height: 14px;
+	padding: 9px 8px 8px;
+	color: white;
+	text-decoration: none;
+	text-shadow: 0 0 1px #97768A
+}
+
+#header .nav li a:hover {
+	background: #69485C;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.post_title h3 {
+	font-size: 28px;
+	text-shadow: 0 0 1px white;
+	letter-spacing: -1px;
+}
+
+#content {
+	margin: 0 auto;
+	background: white;
+	padding: 30px;
+	overflow: hidden
+}
+
+.single_post {
+	margin-bottom: 38px
+}
+
+.single_post .meta {
+	font-size: 13px;
+	color: #bbb;
+}
+
+.single_post .meta a {
+	color: #999;
+}
+
+.post_title {
+	padding-bottom: 8px;
+	border-bottom: 1px solid #f1f1f1;
+	margin-bottom: 8px
+}
+
+.post_content {
+	font-size: 12px;
+	line-height: 1.9em;
+	color: #222
+}
+
+.post_content p {
+	margin-bottom: 1.2em;
+}
+
+.post_content, .post_title .meta {
+	font-family: "Lucida Grande", Arial, sans-serif;
+}
+
+.post_content a {
+	font-weight: bold;
+	border-bottom: 1px solid;
+}
+
+.post_content a:hover {
+	border-bottom: 1px dashed;
+	text-decoration: none;
+}
+
+#posts {
+	float: left;
+	width: 510px;
+}
+
+.sidebar {
+	width: 189px;
+	padding-left: 20px;
+	margin-left: 20px;
+	float: left;
+	border-left: 1px solid #eee;
+}
+
+#site_bottom {
+	clear: both;
+	text-align: center;
+	font-size: 13px;
+	padding-top: 10px;
+	color: #555;
+}
+
+.sidebar .title h2 {
+	font-size: 18px;
+	color: #777;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.sidebar .block {
+	margin-bottom: 18px
+}
+
+.sidebar form #buttonLink {
+	font-size: 12px;
+	float: left;
+}
+
+.post_content pre {
+	font-family: Consolas, Monaco, monospace;
+	background: #f3f3f3;
+	border: 1px solid #ddd;
+	border-width: 1px 0;
+	padding: 4px;
+	white-space: normal
+}
