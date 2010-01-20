@@ -1,3 +1,4 @@
+<?php // This is the template for a single page. ?>
 <div class="single_post">
 	<div class="post_title">
 		<h3><a><?php pageTitle(); ?></a></h3>
