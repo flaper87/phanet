@@ -11,7 +11,7 @@
 $(document).ready(function(){   
 	tb_init('a.thickbox, area.thickbox, input.thickbox');//pass where to apply thickbox
 	imgLoader = new Image();// preload image
-	imgLoader.src = $("body").attr("baseurl") + "media/loadingAnimation.gif";
+	imgLoader.src = "media/loadingAnimation.gif";
 });
 
 //add thickbox to href & area elements that have a class of .thickbox
