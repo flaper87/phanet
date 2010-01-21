@@ -12,6 +12,14 @@ $row = $ptdb->fetchArray();
 $row2 = $row[0];
 $activetheme = $row2[1];
 
+function isPage() {
+	if(	$_GET['static'] == 1):
+		return true;
+	else:
+		return false;
+	endif;
+}
+
 /**
 * Returns site info based on input, like Wordpress' bloginfo()
 */
@@ -41,21 +49,6 @@ function footnote() {
 	global $footnote; echo $footnote;
 }
 
-function pageTitle() {
-	global $page;
-	echo $page->page_title;
-}
-
-function pageContent() {
-	global $page;
-	echo html_entity_decode($page->page_content);
-}
-
-function pageDate($arg) {
-	global $page;
-	echo get_date($arg,$page->page_date);
-}
-
 function listPages($args = array('default')) {
 	global $pages, $page, $activetheme, $srv;
 	if($args['icon'] == 'true') { ?>
@@ -78,7 +71,11 @@ function adminLink() {
 
 function postTitle() {
 	global $post;
-	echo $post->title;
+	if(isPage()) :
+		echo $post->page_title;
+	else :
+		echo $post->title;
+	endif;
 }
 
 function blogURL() {
@@ -93,7 +90,11 @@ function postPermalink() {
 
 function postDate($arg) {
 	global $post;
-	echo get_date($arg,$post->date);
+	if(isPage()):
+		echo get_date($arg,$post->page_date);
+	else:
+		echo get_date($arg,$post->date);
+	endif;
 }
 
 function blogName() {
@@ -103,7 +104,11 @@ function blogName() {
 
 function postContent() {
 	global $post;
-	echo html_entity_decode($post->text);
+	if(isPage()):
+		echo html_entity_decode($post->page_content);
+	else:
+		echo html_entity_decode($post->text);
+	endif;
 }
 
 function blogList() {
@@ -138,19 +143,27 @@ function sidebarMessages() {
 }
 
 function getLoop() {
-	global $activetheme, $post;
-	$posts = getPosts(-1);
+	global $activetheme, $post, $page;
+	if(isPage()) {
+		$posts = getPages();
+	} else {
+		$posts = getPosts(-1);
+	}
 
 	if (!$posts) {
 	 	include('themes/'.$activetheme.'/404.php');
 	}
 
 	$i = 0;
-				 
+	
+	if(isPage()) {		 
 	foreach( $posts as $post){
 		if ( $i == 20 ) break;
 		require('themes/'.$activetheme.'/loop.php');
 	}
+} else {
+	require('themes/'.$activetheme.'/loop.php');
+}
 	$i++;
 }
 
