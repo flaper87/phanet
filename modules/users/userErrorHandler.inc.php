@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS[userErrors] = array(
+$GLOBALS['userErrors'] = array(
 			"blogExists"		=> "userRegisterError/blogExists",
 			"userExists"		=> "userRegisterError/exists",
 			"userDontExists"	=> "userRegisterError/dontExists",
