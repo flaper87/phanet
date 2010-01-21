@@ -103,7 +103,7 @@ function manage_error($err) {
 function registerError($mod, $errName, $descName, $action) {
 	global $int_errors, $ext_errors, $err_actions;
 	
-	if ( $ext_errors[$mod][$errName] ) {
+	if (isset($ext_errors[$mod][$errName]) && $ext_errors[$mod][$errName] ) {
 		echo "Error Exists";
 	} else {
 		$ext_errors[$mod][$errName]	 = $descName;
