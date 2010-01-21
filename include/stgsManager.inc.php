@@ -16,9 +16,14 @@ class stgsManager {
 		global $SETTINGS;
 		
 		$this->dbStgs = $SETTINGS;
+		
+		if(!isset($this->dbStgs['db_port'])) {
+			$this->dbStgs['db_port'] = 1433;
+		}
+
 		$this->dbStgs['url'] = $this->dbStgs['db_type']."://".$this->dbStgs['db_user'].":".
 							   $this->dbStgs['db_password']."@".$this->dbStgs['db_server'].
-							   $this->dbStgs['db_port']."/".$this->dbStgs['db_database'];
+							":".$this->dbStgs['db_port']."/".$this->dbStgs['db_database'];
 		unset($SETTINGS);
 	}
 	
