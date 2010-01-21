@@ -14,7 +14,8 @@ function themeTemplate($id=''){
 			$output[] = include($activetheme.'/index.php');
 			break;
 		case 'page':
-			$output[] = include($activetheme.'/page.php');
+			$post = $page;
+			$output[] = include($activetheme.'/index.php');
 			break;
 	}
 	return $output[1];
