@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 global $srv;
 
 include_once ("userRegister.inc.php");

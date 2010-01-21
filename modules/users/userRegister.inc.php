@@ -26,9 +26,6 @@
  * PHP Template.
  */
 
-// Start a session in none present
-session_start();
-
 /**
 *Functions for urm discovering
 */

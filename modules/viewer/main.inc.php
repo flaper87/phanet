@@ -23,8 +23,6 @@
  */
 ?><?php
 
-session_start();
-
 function loader_actions() {
 	return array("loadinfo"=>"loader_read");
 }
