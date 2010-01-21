@@ -136,3 +136,40 @@ function sidebarMessages() {
 
 	<?php $_SESSION['logMessage'] = ''; }
 }
+
+function getLoop() {
+	global $activetheme, $post;
+	$posts = getPosts(-1);
+
+	if (!$posts) {
+	 	include('themes/'.$activetheme.'/404.php');
+	}
+
+	$i = 0;
+				 
+	foreach( $posts as $post){
+		if ( $i == 20 ) break;
+		require('themes/'.$activetheme.'/loop.php');
+	}
+	$i++;
+}
+
+function loadSidebar() {
+	global $wgts;
+	echo $wgts->showSidebar();
+}
+
+function getHeader() {
+	global $activetheme, $stgs, $srv;
+	require('themes/'.$activetheme.'/header.php');
+}
+
+function getFooter() {
+	global $activetheme, $stgs, $srv;
+	require('themes/'.$activetheme.'/footer.php');
+}
+
+function getSidebar() {
+	global $activetheme, $stgs, $srv;
+	require('themes/'.$activetheme.'/sidebar.php');
+}
