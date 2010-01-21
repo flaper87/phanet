@@ -29,8 +29,12 @@ function back_actions(){
 
 function createPaging() {
     global $srv, $ptdb;
+
+	if(!isset($output)) : $output = ''; endif;
+
+	if(!isset($pos)) : $pos = 0; endif;
     
-     ($_GET["page"])?$pos = $_GET["page"]:$pos = 1;
+    if(isset($_GET['page'])) : ($_GET["page"])?$pos = $_GET["page"]:$pos = 1; endif;
     
     $total = round(countPosts()/20);
 
