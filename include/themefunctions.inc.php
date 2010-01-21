@@ -162,7 +162,9 @@ function getLoop() {
 		require('themes/'.$activetheme.'/loop.php');
 	}
 } else {
+	foreach($posts as $post) {
 	require('themes/'.$activetheme.'/loop.php');
+}
 }
 	$i++;
 }
