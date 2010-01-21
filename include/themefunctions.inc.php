@@ -12,8 +12,12 @@ $row = $ptdb->fetchArray();
 $row2 = $row[0];
 $activetheme = $row2[1];
 
+/*
+* Tests if the current page is...a page.
+* @returns true
+*/
 function isPage() {
-	if(	$_GET['static'] == 1):
+	if(isset($_GET['static']) && !empty($_GET['static'])):
 		return true;
 	else:
 		return false;
@@ -24,7 +28,7 @@ function isPage() {
 * Returns site info based on input, like Wordpress' bloginfo()
 */
 function siteInfo($arg) {
-	global $srv, $stgs;
+	global $srv, $stgs, $activetheme;
 	switch($arg) {
 		case 'name':
 		default:
@@ -42,14 +46,24 @@ function siteInfo($arg) {
 		case 'admin_url':
 			echo $srv->buildUrl('?admin=');
 			break;
+		case 'theme_path':
+			echo 'themes/'.$activetheme;
+			break;
 	}
 }
 
+/*
+* Returns the footnote: "posted by admin on blah blah blah"
+* Can't really see much of a use for this one.
+*/
 function footnote() {
 	global $footnote; echo $footnote;
 }
 
-function listPages($args = array('default')) {
+/*
+* Creates an unordered list of pages. More options to come.
+*/
+function listPages($args = array('class' => '', 'icon' => 'false')) {
 	global $pages, $page, $activetheme, $srv;
 	if($args['icon'] == 'true') { ?>
 	<img alt="pageicon" src=<?php echo $srv->getPath("themes/phanet_dark/styles/images/page.gif"); ?> />
@@ -63,12 +77,19 @@ function listPages($args = array('default')) {
 	<?php }
 }
 
+/*
+* Builds URL to the admin panel based on whether rewrite is 
+* on or not.
+*/
 function adminLink() {
 	global $srv; ?>
 		<li class="admin_link"><a style="text-align:right;" href="<?php echo $srv->buildUrl('?admin='); ?>"><span class="footnote">Admin Panel</span></a></li>
 	<?php
 }
 
+/*
+* Echoes post/page title.
+*/
 function postTitle() {
 	global $post;
 	if(isPage()) :
@@ -78,16 +99,26 @@ function postTitle() {
 	endif;
 }
 
+/*
+* Echoes the URL of the blog from which the current post came.
+*/
 function blogURL() {
 	global $post;
 	echo $post->url;
 }
 
+/*
+* Echoes the permalink to the current post.
+*/
 function postPermalink() {
 	global $post;
 	echo $post->link;
 }
 
+/*
+* Like PHP's date() function, but grabs the post date rather than
+* the current one.
+*/
 function postDate($arg) {
 	global $post;
 	if(isPage()):
@@ -97,11 +128,17 @@ function postDate($arg) {
 	endif;
 }
 
+/*
+* Echoes the name of the blog from which the current post came.
+*/
 function blogName() {
 	global $post;
 	echo $post->name;
 }
 
+/*
+* Echoes the post content.
+*/
 function postContent() {
 	global $post;
 	if(isPage()):
@@ -111,6 +148,9 @@ function postContent() {
 	endif;
 }
 
+/*
+* Lists all blogs to which Phanet is subscribed.
+*/
 function blogList() {
 	$blogs = getFeeds();
 	foreach($blogs as $blog) { ?>
@@ -122,6 +162,10 @@ function blogList() {
 <?php }
 }
 
+/*
+* Tests if widgets are enabled.
+* @returns true
+*/
 function widgetized() {
 	global $wgts, $stgs;
 	if(is_object($wgts) && $stgs->getConf('widgetizer') == "enabled") {
@@ -129,6 +173,9 @@ function widgetized() {
 	}
 }
 
+/*
+* Echoes sidebar messages for the current user.
+*/
 function sidebarMessages() {
 	if (!empty($_SESSION['logMessage'])) { ?>
 	<div class="block">
@@ -142,6 +189,9 @@ function sidebarMessages() {
 	<?php $_SESSION['logMessage'] = ''; }
 }
 
+/*
+* Grabs loop.php in the current theme folder.
+*/
 function getLoop() {
 	global $activetheme, $post, $page;
 	if(isPage()) {
@@ -169,22 +219,96 @@ function getLoop() {
 	$i++;
 }
 
+/*
+* Shows the generated sidebar. Use on sidebar.php
+*/
 function loadSidebar() {
 	global $wgts;
 	echo $wgts->showSidebar();
 }
 
+/*
+* Grabs header.php in the current theme folder.
+*/
 function getHeader() {
 	global $activetheme, $stgs, $srv;
 	require('themes/'.$activetheme.'/header.php');
 }
 
+/*
+* Grabs footer.php in the current theme folder.
+*/
 function getFooter() {
 	global $activetheme, $stgs, $srv;
 	require('themes/'.$activetheme.'/footer.php');
 }
 
+/*
+* Grabs sidebar.php in the current theme folder.
+*/
 function getSidebar() {
 	global $activetheme, $stgs, $srv;
 	require('themes/'.$activetheme.'/sidebar.php');
+}
+
+/*
+* Loads any of a number of predefined scripts.
+*/
+function loadScript($name) {
+	global $srv;
+switch($name):
+	case 'jquery':
+		echo '<script src="'.$srv->getPath('media/js/jquery/jquery.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIbase':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.base.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIaccordion':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.accordion.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIdialog':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.dialog.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIdraggable':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.draggable.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIdroppable':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.droppable.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIresizable':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.resizable.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIselectable':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.selectable.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIslider':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.slider.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUIsortable':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.sortable.js').'" type="text/javascript"></script>';
+		break;
+	case 'jqueryUItabs':
+		echo '<script src="'.$srv->getPath('media/js/jquery/ui/ui.tabs.js').'" type="text/javascript"></script>';
+		break;
+	case 'thickbox':
+		echo '<script src="'.$srv->getPath('media/js/thickbox/thickbox.js').'" type="text/javascript"></script>';
+		echo '<link rel="stylesheet" type="text/css" href="'.$srv->getPath('media/js/thickbox/ThickBox.css').'" />';
+		break;
+endswitch;
+}
+
+function feedURL() {
+	global $srv; echo $srv->buildUrl('?feed=');
+}
+
+function is404() {
+	$posts = getPosts(-1);
+	if(isset($_GET['static'])) {
+		$pagenumber = $_GET['static'];
+		$pages = getPages($pagenumber);
+	}
+	if(!$posts || (isset($pages) && !$pages)):
+		return true;
+	else: return false;
+	endif;
 }
