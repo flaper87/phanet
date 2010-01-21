@@ -29,6 +29,8 @@ function getPosts( $limit = 0 ){
     	$queryLimit	= "LIMIT ".(($_GET['page']-1)*20).",20";
     } elseif ( $limit > 0 ) {
 		$queryLimit	= "LIMIT $limit";
+	} else {
+		$queryLimit = "LIMIT 0,20";
 	}
 	        
         
@@ -63,7 +65,7 @@ function getPages( $id = '') {
 	if ($id) $where = " AND p.id=$id ";
 	
 	$query  = "SELECT p.*, u.nickname FROM {pages} AS p, {users} AS u "; 
-	$query .= " WHERE p.state='enabled' AND u.id=p.user_id $where ORDER BY page_title";
+	$query .= " WHERE p.state='enabled' AND u.id=p.user_id ORDER BY page_title";
 	$ptdb->query($query);
 
 	return $ptdb->fetchObject();
