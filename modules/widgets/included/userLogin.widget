@@ -11,14 +11,14 @@ function userLoginWidget() {
 		$output[] = "<div class=\"title\"><h2><span class=\"dark\">User</span></h2></div>";
 		$output[] = "<div class=\"text\">";
 		
-			if ($_SESSION['userNickname'] != "" ) {
+			if (isset($_SESSION['userNickname'])) {
 				// We are logged in
-				$output[] = "<b>Wellcome ".$_SESSION['userNickname']."</b>";
+				$output[] = "<b>Welcome, ".$_SESSION['userNickname']."</b>";
 				$output[] = "<br />";
 				$output[] = "<a href=\"".$srv->buildUrl("?user=logout")."\">Logout</a>";
 			} else {
 				// We are not logged in
-				if ($_SESSION["loginMessage"] != "") {
+				if (isset($_SESSION['loginMessage'])) {
 					$output[] = "<b>".$_SESSION["loginMessage"]."</b>";
 					$output[] = "<br /><br />";
 					$_SESSION["loginMessage"] = "";
