@@ -1,9 +1,9 @@
 <?php 
 
 function show_404() {
-	global $srv;
+	global $srv, $activetheme, $stgs;
 	
 	$output[] = require($activetheme.'/404.php');
 	
-	echo join("\n", $output);
+	echo $output[1];
 }
