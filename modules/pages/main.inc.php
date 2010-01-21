@@ -52,6 +52,6 @@ function createPaging() {
     
     if ( $total >= ($pos+2) ) $output .= "...<a href='".$srv->buildUrl("?page=".$total, True)."'>Last Page</a> ";
     
-    return $output;
+    echo $output;
     
 }
