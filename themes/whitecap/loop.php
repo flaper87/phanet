@@ -1,4 +1,4 @@
-<?php // This page is the template for a post, so it's looped. Make sure not to leave any tags open. ?>
+<?php // This page is the template for a post. On post pages, it's looped; on page pages, it's displayed once. ?>
 <div class="single_post">
 	<div class="post_title">
 		<h3><a href="<?php postPermalink(); ?>"><?php postTitle(); ?></a></h3>
