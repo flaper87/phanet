@@ -156,7 +156,7 @@ function getLoop() {
 
 	$i = 0;
 	
-	if(isPage()) {		 
+	if(!isPage()) {		 
 	foreach( $posts as $post){
 		if ( $i == 20 ) break;
 		require('themes/'.$activetheme.'/loop.php');
