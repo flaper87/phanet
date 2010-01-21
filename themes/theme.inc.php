@@ -2,11 +2,22 @@
 
 session_start();
 
-include_once ('header.inc.php');
-include_once ('sidebar.inc.php');
-include_once ('bottom.inc.php');
+/*
+* Select the current theme
+*/
+global $ptdb, $activetheme;
+
+$sql = "SELECT * FROM {settings} WHERE `keyid` = 'active_theme'";
+$ptdb->query($sql); $theme = $ptdb->fetchArray(); $activetheme = $theme[0][1];
+
+/*
+* Set up theme functions like getLoop etc.
+*/
 require_once('include/themefunctions.inc.php');
 
+/*
+* Displays posts/pages
+*/
 function themeTemplate($id=''){
 	global $page, $footnote, $activetheme, $posts, $wgts, $srv, $stgs, $SESSION;
 	switch($id){
@@ -21,6 +32,9 @@ function themeTemplate($id=''){
 	return $output[1];
 }
 
+/*
+* Render the actual theme
+*/
 function themeRender($params = array()){
 	
 	$name = $params[0]; 
