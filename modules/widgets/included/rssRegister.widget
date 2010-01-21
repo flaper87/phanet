@@ -17,14 +17,14 @@ function rssRegisterWidget() {
 				}
 				
 				$output[] = "<form action='".$srv->buildUrl("?user=addRss")."' method='post'>";
-				$output[] = "Name:<br/><input type=\"text\" name=\"phanetTitle\" /> <br/><br/>";
-				$output[] = "Description:<br/><input type=\"text\" name=\"phanetDesc\" /> <br/><br/>";
-				$output[] = "Site Url:<br/><input type=\"text\" name=\"phanetUrl\" /> <br/><br/>";
-				$output[] = "Site Feed:<br/><input type=\"text\" name=\"phanetRss\" /> <br/><br/>";
-				$output[] = "Owner Nickname:<br /><input type=\"text\" name=\"phanetNick\" /> <br/><br/>";
-				$output[] = "Owner Fullname:<br/><input type=\"text\" name=\"phanetFull\" /> <br/><br/>";
-				$output[] = "Owner Email:<br/><input type=\"text\" name=\"phanetEmail\" /> <br/><br/>";
-				$output[] = "<input type=\"submit\" name=\"phanetRssregister\" value=\"Register\" /> <br />";
+				$output[] = "<p>Name:<br/><input type=\"text\" name=\"phanetTitle\" /> <br/><br/></p>";
+				$output[] = "<p>Description:<br/><input type=\"text\" name=\"phanetDesc\" /> <br/><br/></p>";
+				$output[] = "<p>Site Url:<br/><input type=\"text\" name=\"phanetUrl\" /> <br/><br/></p>";
+				$output[] = "<p>Site Feed:<br/><input type=\"text\" name=\"phanetRss\" /> <br/><br/></p>";
+				$output[] = "<p>Owner Nickname:<br /><input type=\"text\" name=\"phanetNick\" /> <br/><br/></p>";
+				$output[] = "<p>Owner Fullname:<br/><input type=\"text\" name=\"phanetFull\" /> <br/><br/></p>";
+				$output[] = "<p>Owner Email:<br/><input type=\"text\" name=\"phanetEmail\" /> <br/><br/></p>";
+				$output[] = "<p><input type=\"submit\" name=\"phanetRssregister\" value=\"Register\" /> <br /></p>";
 				$output[] = "</form>";
 			
 		$output[] = "</div>";

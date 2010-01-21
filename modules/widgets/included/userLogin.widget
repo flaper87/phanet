@@ -25,11 +25,11 @@ function userLoginWidget() {
 				}
 				
 				$output[] = "<form action='".$srv->buildUrl("?user=login")."' method='post'>";
-				$output[] = "User: <input type=\"text\" name=\"phanetUser\"> <br/><br/>";
-				$output[] = "Password: <input type=\"password\" name=\"phanetUserPass\"> <br/><br />";
-				$output[] = "<input type=\"submit\" name=\"phanetUserlogin\" value=\"Login\"> <br />";
-				$output[] = '<a href="'.$srv->buildUrl("?user=register&TB_iframe=true&height=500&width=700").'" class="thickbox" title="Registration Form">Register</a>';
-				$output[] = '<a href="'.$srv->buildUrl('?user=lostpass&TB_iframe=true&height=400&width=500"').'" class="thickbox" title="Did you lose something?">Lost your password?</a>';
+				$output[] = "<p>User: <input type=\"text\" name=\"phanetUser\" /> <br/><br/></p>";
+				$output[] = "<p>Password: <input type=\"password\" name=\"phanetUserPass\" /> <br/><br /></p>";
+				$output[] = "<p><input type=\"submit\" name=\"phanetUserlogin\" value=\"Login\" /> <br /></p>";
+				$output[] = '<p><a href="'.$srv->buildUrl("?user=register&amp;TB_iframe=true&amp;height=500&amp;width=700").'" class="thickbox" title="Registration Form">Register</a></p>';
+				$output[] = '<p><a href="'.$srv->buildUrl('?user=lostpass&amp;TB_iframe=true&amp;height=400&amp;width=500').'" class="thickbox" title="Did you lose something?">Lost your password?</a></p>';
 				$output[] = "</form>";
 			}
 			

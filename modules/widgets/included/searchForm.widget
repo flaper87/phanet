@@ -24,10 +24,10 @@ function searchFormWidget() {
 			$output[] = "<form id=\"searchForm\" action='".$srv->getInstallRadix()."' method='get'>";
 			$output[] = "<h5>Search:</h5>";
 			//$output[] = "<div style=\"padding-right: 90px; float:right;\" id=\"searchLoading\"><img src=\"".$srv->getPath('media/stop_grey.png')."\" /></div>"; 
-			$output[] = "<input type=\"text\" name=\"search\" />";
+			$output[] = "<p><input type=\"text\" name=\"search\" /></p>";
 			$output[] = "</form>";			
 			$output[] = "<form action='".$srv->getInstallRadix()."' method='get'>";
-			$output[] = "<div style=\"float:right;\" id=\"buttonLink\">";
+			$output[] = "<div style=\"float:right;\" id=\"butonLink\">";
 			$output[] = "<a href='".$srv->buildUrl("?advanceSearch=")."'>Advanced Search</a>";
 			$output[] = "</div>";
 			$output[] = "</form>";

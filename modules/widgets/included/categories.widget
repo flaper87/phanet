@@ -8,14 +8,15 @@ function categoriesWidget() {
 				$output[] = '<div class="title"><h2><span class="dark">Categories</span></h2></div>';
 				$output[] = '<div class="text">';
 				$output[] = '<ul id="category">';
-				$output[] = '<div id="buttonLink">';
+				$output[] = '<li id="buttonLink">';
 				$output[] = '<ul id="subCategory">';
+				$output[] = '<li></li>';
 				foreach (getCategories() as $categ) {	
 						$output[] = '<li><a href="'.$srv->buildUrl('?category='.$categ['label']).'">'.ucwords($categ['label']).'</a></li>';
 				}
 				$output[] = '</ul>';
 				
-				$output[] = '</div>';
+				$output[] = '</li>';
 				$output[] = '</ul>';
 				$output[] = '</div>';
 				$output[] = '<div class="close"></div>';
