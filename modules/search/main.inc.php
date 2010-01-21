@@ -43,7 +43,7 @@ function checkIfSearch() {
 					break;	
 			}
 		}
-	} elseif ($_POST['advanceSearch']) {
+	} elseif (isset($_POST['advanceSearch'])) {
 		if ($_POST['titleSearch']) 
 			$queryWhere .= " AND p.title like '%".fixApostrofe($_POST['titleSearch'])."%'";
 		elseif ($_POST['dateSearch'])
@@ -54,5 +54,5 @@ function checkIfSearch() {
 			$queryWhere .= " AND p.text like '%".fixApostrofe($_POST['contentSearch'])."%'";			
 	}
 	
-	return $queryWhere;
+	if(isset($queryWhere)) : return $queryWhere; endif;
 }
