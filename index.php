@@ -36,7 +36,7 @@ session_start();
 // if it doesn't exist, redirect to install process
 // otherwise we are free to go
 // ***********************
-if (! file_exists("settings.inc.php") || isset($_POST["installButton"]) || $_GET["a"] == "install" ) {
+if (! file_exists("settings.inc.php") || isset($_POST["installButton"]) || (isset($_GET['a']) && $_GET["a"] == "install") ) {
 	include_once ("modules/install/install.php");
 	doInstall();
 	die();
