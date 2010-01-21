@@ -100,6 +100,16 @@ ul li.admin_link {
 	margin-bottom: 38px
 }
 
+.toggled .single_post {
+	margin-bottom: 0px;
+	padding: 4px
+}
+
+.toggled .post_title {
+	border-bottom: 0;
+	margin-bottom: 0
+}
+
 .single_post .meta {
 	font-size: 13px;
 	color: #bbb;
@@ -156,8 +166,11 @@ ul li.admin_link {
 	clear: both;
 	text-align: center;
 	font-size: 13px;
-	padding-top: 10px;
+	padding: 25px 10px;
 	color: #555;
+	margin: 0 -1px;
+	background: #f1f1f1;
+	border-top: 1px solid #ddd
 }
 
 .sidebar .title h2 {
@@ -194,4 +207,28 @@ ul li.admin_link {
 	list-style-position: inside;
 	padding: 3px 0;
 	font-size: 0.75em
+}
+
+.trimmer {
+	float: right;
+	font-size: 14px;
+}
+
+.trimmer a {
+	color: #666;
+	cursor: pointer;
+}
+
+.paging {
+	color: #666;
+	font-size: 14px;
+	margin-bottom: 8px
+}
+
+.hidden {
+	display: none;
+}
+
+.single_post.odd {
+	background-color: #eee
 }
