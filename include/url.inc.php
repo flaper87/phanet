@@ -54,7 +54,7 @@ class serverHandler {
 	 */ 
 	function getCurUrl() {
 	    $pageURL = 'http';
-	    if ($_SERVER["HTTPS"] == "on") {
+	    if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
 	        $pageURL .= "s";
 	    }
 	    $pageURL .= "://";
@@ -282,7 +282,7 @@ class serverHandler {
 			$this->isNS4   = true;
 		}
 		
-		$this->is_IE = ( $this->isMacIE || $his->isWinIE );
+		$this->is_IE = ( $this->isMacIE || $this->isWinIE );
 		
 		//$_SESSION['isJavascript'] = $_POST['isJavascript']; 
 		
