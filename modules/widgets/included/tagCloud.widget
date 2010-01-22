@@ -7,8 +7,14 @@ function getCloudTags() {
 	$tags = $ptdb->fetchArray($ptdb->query($query));
 	
 	foreach ( $tags as $key => $tag) {
+		if(!isset($tags['min'])) {
+			$tags['min'] = 0;
+		}
+		if(!isset($tags['max'])) {
+			$tags['max'] = 4;
+		}
 		$times = $ptdb->fetchRows($ptdb->query("SELECT count(*) FROM {posts} as p " .
-												"where p.tags like '%:".$tag[id].":%'"));
+												"where p.tags like '%:".$tag['id'].":%'"));
 		$tags[$key]['times'] = $times[0][0];
 		if ( $tags['max'] < $tags[$key]['times'] ) $tags['max'] = $tags[$key]['times'];
 		if ( $tags['min'] > $tags[$key]['times'] ) $tags['min'] = $tags[$key]['times'];
@@ -26,12 +32,15 @@ function tagCloudWidget() {
 	unset($tags['max']);
 	unset($tags['min']);
 	
-	($spread==0)?$spread=1:pass;
+	($spread==0)?$spread=1:'pass';
 	
 	$output[] = '<div class="block">';
 	$output[] = '<div id="notToggle" style="text-align: center; background: transparent !important;" class="text">';
 	
 	foreach ($tags as $tag) {
+		if(!isset($tags['min'])) {
+			$tags['min'] = 0;
+		}
 		$size = $minFontSize + ($tag['times'] - $tags['min']) 
 		* ($maxFontSize - $minFontSize) / $spread;
 		
