@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 /*
 * Select the current theme
 */
@@ -29,7 +27,6 @@ function themeTemplate($id=''){
 			$output[] = include($activetheme.'/index.php');
 			break;
 	}
-	return $output[1];
 }
 
 /*
@@ -37,7 +34,7 @@ function themeTemplate($id=''){
 */
 function themeRender($params = array()){
 	
-	$name = $params[0]; 
+	$name = $params; 
 	array_shift($params); 
 		
 		showThemeBody();
@@ -48,7 +45,7 @@ function showThemeBody() {
 		
 		$pages = getPages();
 		
-        if ($_GET["static"]) {
+        if (isset($_GET['static'])) {
 			$output[] = showPage();
 		} else {
 			$output[] = showPosts();
