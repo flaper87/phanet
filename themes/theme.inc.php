@@ -75,5 +75,5 @@ function showPage() {
 		$footnote = 'Written on '. get_date('r',$page->page_date);
 		$output[] = themeTemplate('page');
 	}
-	echo $output[1];
+	echo $output;
 }
