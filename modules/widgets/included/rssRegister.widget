@@ -10,7 +10,7 @@ function rssRegisterWidget() {
 		$output[] = "<div class=\"title\"><h2><span class=\"dark\">Register Your Feed!</span></h2></div>";
 		$output[] = "<div class=\"text\">";
 		
-				if ($_SESSION["rssRegisterError"] != "") {
+				if (isset($_SESSION['rssRegisterError'])) {
 					$output[] = "<b>".$_SESSION["rssRegisterError"]."</b>";
 					$output[] = "<br /><br />";
 					$_SESSION["rssRegisterError"] = "";
