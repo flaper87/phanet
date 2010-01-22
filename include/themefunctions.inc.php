@@ -112,7 +112,9 @@ function blogURL() {
 */
 function postPermalink() {
 	global $post;
-	echo $post->link;
+	if(isset($post->link)) :
+		echo $post->link;
+	endif;
 }
 
 /*
@@ -299,4 +301,17 @@ endswitch;
 
 function feedURL() {
 	global $srv; echo $srv->buildUrl('?feed=');
+}
+
+function is404() {
+$posts = getPosts(-1);
+  if(isset($_GET['static'])) {
+    $pagenumber = $_GET['static'];
+    $pages = getPages($pagenumber);
+  }
+  if(!$posts || (isset($pages) && !$pages) || !getQueryWhere()):
+    return true;
+  else:
+	return false;
+  endif;
 }
